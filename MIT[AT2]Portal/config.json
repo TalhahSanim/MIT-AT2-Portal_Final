@@ -1,0 +1,7 @@
+{
+  "EnableDeveloperExceptions": "True",
+  "ConnectionStrings": { "DBConnection": "Server=TalhahSurface\\SQLEXPRESS;Database=StudentEnrollment;Uid=sa;Password=Tafe123$;Encrypt=False" } //Laptop
+
+  //"ConnectionStrings": { "DBConnection": "Server=Talhah\\SQLEXPRESS;Database=StudentEnrollment;Uid=sa;Password=0816;Encrypt=False" }  //Home Desktop
+
+} 

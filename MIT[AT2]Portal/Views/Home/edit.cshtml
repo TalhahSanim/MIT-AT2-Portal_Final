@@ -1,0 +1,27 @@
+﻿@model MIT_AT2_Portal.Models.Student
+
+<fieldset>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <h1 class=" edit">Update Applicant Details</h1>
+        <table class="table table-striped">
+            <tr><td style="vertical-align: top; padding: 10px 0;">@Html.LabelFor(n => n.fullName)@Html.EditorFor(n => n.fullName, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Full Name" } })@Html.ValidationMessageFor(n => n.fullName, "", new { @class = "text-danger" })</td></tr>
+            <tr><td style="vertical-align: top; padding: 10px 0;">@Html.LabelFor(n => n.dateOfBirth)@Html.EditorFor(n => n.dateOfBirth, new { htmlAttributes = new { @class = "form-control", placeholder = "DD-MM-YYYY" } })@Html.ValidationMessageFor(n => n.dateOfBirth, "", new { @class = "text-danger" })</td></tr>
+            <tr><td style="vertical-align: top; padding: 10px 0 ;">@Html.LabelFor(n => n.qualification)@Html.DropDownListFor(n => n.qualification, Model.qualificationList, "Select a Degree", new { @class = "form-control", @id = "qualID" })@Html.ValidationMessageFor(n => n.qualification, "", new { @class = "text-danger" })</td></tr>
+            <tr><td style="vertical-align: top; padding: 10px 0;">@Html.LabelFor(n => n.gpa)<small class="gpatext"> (Out of 4.0) </small>@Html.EditorFor(n => n.gpa, new { htmlAttributes = new { @class = "form-control", placeholder = "Minimum 3.0 GPA " } })@Html.ValidationMessageFor(n => n.gpa, "", new { @class = "text-danger" })</td></tr>
+            <tr><td style="vertical-align: top; padding: 10px 0;">@Html.LabelFor(n => n.university)@Html.DropDownListFor(n => n.university, Model.uniList, "Select a University", new { @class = "form-control", @id = "uniID" })@Html.ValidationMessageFor(n => n.university, "", new { @class = "text-danger" })</td></tr>
+            <tr><td style="padding: 20px;"><button type="submit" id="btn-primary">Update Applicant</button></td></tr>
+        </table>
+
+
+
+
+
+
+
+
+
+    }
+</fieldset>

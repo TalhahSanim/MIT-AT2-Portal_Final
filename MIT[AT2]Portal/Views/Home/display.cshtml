@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MIT_AT2_Portal.Models.Student>
+
+<h1 class="ApplicationList">Application List (Sorted by GPA)</h1>
+@using (Html.BeginForm())
+{
+    <input type="text" name="search" placeholder="Search Through Records" />
+    <button type="submit" id=" btn-primary   ">Search</button>
+    <br /><br />
+    <button type="button" id=" btn-primary" onclick="location.href='@Url.Action("create", "home")'">Create Applicant</button>
+        
+}
+  
+
+<div style="width:100%;height:600px;overflow:scroll">
+<table class=" table table table-striped">
+
+   
+
+
+    <tr>
+        <th>@Html.DisplayNameFor(e=>e.fullName)</th>
+            
+        <th>@Html.DisplayNameFor(e=>e.dateOfBirth)</th>
+        <th>@Html.DisplayNameFor(e=>e.qualification)</th>
+
+          
+        <th>@Html.DisplayNameFor(e => e.gpa)</th>
+        <th>@Html.DisplayNameFor(e=>e.university)</th>
+        <th>@Html.DisplayName("Actions")</th>
+</tr>
+
+    @foreach(var items in Model)
+    {
+        <tr>
+            <td>@items.fullName</td>
+
+            <td>@items.dateOfBirth?.ToString("dd/MM/yyyy")</td>
+            <td>@items.qualification</td>
+            <td>@items.gpa</td>
+            <td>@items.university</td>
+            
+                <td>
+                    <button type="button" id=" btn-primary" onclick="location.href='@Url.Action("edit", "home", new { id = items.Id })'">
+                        Edit
+                    Applicant </button>
+                    <button type="button" id=" btn-primary" onclick="if (confirm('Are you sure you want to delete this item?')) {location.href='@Url.Action("delete", "home", new { id = items.Id })';}">Delete Applicant</button>
+                    </td>
+
+        </tr>
+        
+    }
+    </table>
+    </div>                                                 
